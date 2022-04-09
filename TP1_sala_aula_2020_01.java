@@ -108,8 +108,8 @@ public class TP1_sala_aula_2020_01 {
 	}
 	
 	void montarInstrucoesProgramaAleatorio(){
-		//01|22|13|45 => isto � uma instru��o
-		//00|33|12|01 => isto � outra instru��o
+		//01|22|13|45 => isto é uma instru��o
+		//00|33|12|01 => isto é outra instru��o
 		//00/15/02/222
 		//01/10/13/22
 		//02/-199/10/null
@@ -129,9 +129,9 @@ public class TP1_sala_aula_2020_01 {
 		//0 => opcode => somar
 		//1 => opcode => subtrair
 		//-1 => halt -> parar
-		//2 => levar para mem�ria
-		//3 => retirar da mem�ria
-		//4 => atribui��o
+		//2 => levar para memoria
+		//3 => retirar da memoria
+		//4 => atribuicão
 		
 		memoriaInstrucoes= new int[100][4];
 		Random r = new Random();
