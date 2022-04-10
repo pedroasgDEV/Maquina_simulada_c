@@ -6,8 +6,9 @@
 
 //Modulos
 #include "core.h"
+#include "operations.h"
 
-//TODO criar modulo das operações matematicas e fazer as operações de soma e subrtação
+//TODO adicionar arquivo para interpretador
 
 int main(int argc, char *argv[]){
     //Semente
@@ -20,7 +21,7 @@ int main(int argc, char *argv[]){
     memoria_dados = montar_ram();
     memoria_instrucoes = montar_instrucoes();
 
-    machine(memoria_instrucoes, &memoria_dados);
+    printf("%d * %d = %d\n", 27, 4, divi(12, 3, memoria_instrucoes, memoria_dados));
 
     //Libera a memoria alocada
     for(int i = 0; i < n_instr; i++)

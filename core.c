@@ -46,11 +46,6 @@ int** montar_instrucoes(){
 
 }
 
-//Compila o codigo
-int** compilar(int** memoria_instrucoes){
-    return memoria_instrucoes;
-}
-
 //Maquina que vai interpretar a instrução
 void interprets_machine(int** memoria_dados, int** instrucao){
     switch((*instrucao)[0]){
@@ -76,20 +71,15 @@ void interprets_machine(int** memoria_dados, int** instrucao){
     }
 }
 
-//TODO precisa pegar os dados da instrução 3 para reuso
 //Roda a maquina
-void machine(int** memoria_instrucoes, int** memoria_dados){
+void machine(int*** memoria_instrucoes, int** memoria_dados){
     //Aloca as instruções dinamicamente
-    int** memoria_instrucoes_compiladas = (int**) malloc(n_instr * sizeof(int*));
-    for(int i = 0; i < 4; i++)
-        memoria_instrucoes_compiladas[i] = (int*) malloc(4 * sizeof(int));
     int* instrucao = (int*) malloc(4 * sizeof(int));
 
-
-    memoria_instrucoes_compiladas = compilar(memoria_instrucoes);
-
-    for(int i = 0; memoria_instrucoes_compiladas[i][0] != -1; i++){
-        instrucao = memoria_instrucoes_compiladas[i];
+    //Compila as instruções
+    for(int i = 0; (*memoria_instrucoes)[i][0] != -1; i++){
+        instrucao = (*memoria_instrucoes)[i];
         interprets_machine(memoria_dados, &instrucao);
+        (*memoria_instrucoes)[i] = instrucao;
     }
 }
