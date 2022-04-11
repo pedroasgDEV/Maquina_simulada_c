@@ -2,30 +2,28 @@
 #include "core.h"
 
 //Bibliotecas
-#include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 
 //Aloca e preenche a memoria ram com lixo
-int* montar_ram(){
+long int* montar_ram(){
     //Alocando dinamicamente
-    int* dados = (int*) malloc(n_ram * sizeof(int));
+    long int* dados = (long int*) malloc(n_ram * sizeof(long int));
 
     //Preenchendo com lixo
-    for(int i = 0; i < n_ram; i++)
+    for(long int i = 0; i < n_ram; i++)
         dados[i] = rand() % (n_instr + 1);
 
     return dados;
 }
 
 //Aloca e preenche a memoria de instruções com lixo
-int** montar_instrucoes(){
+long int** montar_instrucoes(){
     //Alocando dinamicamente
-    int** instr = (int**) malloc(n_instr * sizeof(int*));
+    long int** instr = (long int**) malloc(n_instr * sizeof(long int*));
 
     //Preenchendo com lixo
-    for(int i = 0; i < n_instr; i++){
-        instr[i] = (int*) malloc(4 * sizeof(int));
+    for(long int i = 0; i < n_instr; i++){
+        instr[i] = (long int*) malloc(4 * sizeof(long int));
 
         //Halt
         if(i == (n_instr - 1)){
@@ -46,8 +44,8 @@ int** montar_instrucoes(){
 
 }
 
-//Maquina que vai interpretar a instrução
-void interprets_machine(int** memoria_dados, int** instrucao){
+//Maquina que vai long interpretar a instrução
+void interprets_machine(long int** memoria_dados, long int** instrucao){
     switch((*instrucao)[0]){
         //Soma
         case 0:
@@ -72,12 +70,12 @@ void interprets_machine(int** memoria_dados, int** instrucao){
 }
 
 //Roda a maquina
-void machine(int*** memoria_instrucoes, int** memoria_dados){
+void machine(long int*** memoria_instrucoes, long int** memoria_dados){
     //Aloca as instruções dinamicamente
-    int* instrucao = (int*) malloc(4 * sizeof(int));
+    long int* instrucao = (long int*) malloc(4 * sizeof(long int));
 
     //Compila as instruções
-    for(int i = 0; (*memoria_instrucoes)[i][0] != -1; i++){
+    for(long int i = 0; (*memoria_instrucoes)[i][0] != -1; i++){
         instrucao = (*memoria_instrucoes)[i];
         interprets_machine(memoria_dados, &instrucao);
         (*memoria_instrucoes)[i] = instrucao;

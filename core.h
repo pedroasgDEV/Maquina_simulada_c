@@ -6,12 +6,9 @@
 #define n_instr 100
 
 //Funçôes
-int* montar_ram(); //Aloca e preenche a memoria ram com lixo
-int** montar_instrucoes(); //Aloca e preenche a memoria de instruções com lixo
-void machine(int*** memoria_instrucoes, int** memoria_dados); //Roda a maquina
-void interprets_machine(int** memoria_dados, int** instrucao); //Maquina que vai interpretar a instrução
+long int* montar_ram(); //Aloca e preenche a memoria ram com lixo
+long int** montar_instrucoes(); //Aloca e preenche a memoria de instruções com lixo
+void machine(long int*** memoria_instrucoes, long int** memoria_dados); //Roda a maquina
+void interprets_machine(long int** memoria_dados, long int** instrucao); //Maquina que vai interpretar a instrução
 
 #endif
-
-
-
