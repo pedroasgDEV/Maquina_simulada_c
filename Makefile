@@ -4,7 +4,7 @@ all:
 	gcc -c core.c -Wall
 	gcc -c main.c -Wall
 	gcc *.o -o exec -Wall
-	./exec
+	./exec < code.in > code.out
 clear:
-	rm *.o exec
+	rm *.o exec code.out
 	clear
