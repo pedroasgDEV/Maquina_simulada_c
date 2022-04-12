@@ -10,7 +10,6 @@
 //Interpreta os comandos do usuario
 
 void user_process(char command[], long int a, long int b, long int c ,long int** memoria_instrucoes, long int* memoria_dados){
-    //TODO fazer as chamadas das operações conforme os comandos do usuario
     //Soma
     if(strcmp(command, "+") == 0)
         printf("%ld + %ld = %ld\n", a, b, soma(a, b, memoria_instrucoes, memoria_dados));
