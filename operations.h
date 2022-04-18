@@ -1,6 +1,11 @@
 #ifndef OPERATIONS_H
 #define OPERATIONS_H
 
+//TODO fazer a fatoração com processamento paralelo e função de recursividade
+//TODO depois, usando python, multiplicar as saidas das maquinas paralelas
+//TODO em c chama o arquivo pyhton usando o comando system
+//TODO ler o aquivo gerado em pyhton e printar aqui
+
 //Funçôes
 long int soma(long int a, long int b, long int** memoria_instrucoes, long int* memoria_dados); //Soma
 long int sub(long int a, long int b, long int** memoria_instrucoes, long int* memoria_dados); //Subtração

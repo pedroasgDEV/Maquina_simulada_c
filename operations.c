@@ -577,7 +577,28 @@ long int primo(long int a, long int** memoria_instrucoes, long int* memoria_dado
 
 //Calcula a subtração da bhaskara
 long int bhaskara_sub(long int a, long int b, long int c, long int** memoria_instrucoes, long int* memoria_dados){
+    long int mult = multi(multi(a, c, memoria_instrucoes, memoria_dados), 4, memoria_instrucoes, memoria_dados);
+    long int subt = sub(pot(b, 2, memoria_instrucoes, memoria_dados), mult, memoria_instrucoes, memoria_dados);
+    long int delta = raiz(subt, 2, memoria_instrucoes, memoria_dados);
+    subt = sub(-b, delta, memoria_instrucoes, memoria_dados);
+    long int div = divi(subt, multi(a, 2, memoria_instrucoes, memoria_dados), memoria_instrucoes, memoria_dados);
 
+    //Leva o resultado para a memoria
+    memoria_instrucoes[0][0] = 2;
+    memoria_instrucoes[0][1] = div;
+    memoria_instrucoes[0][2] = 0;
+
+    //Traz o valor final da memoria
+    memoria_instrucoes[1][0] = 3;
+    memoria_instrucoes[1][1] = 0;
+
+    //Encerra a execução
+    memoria_instrucoes[2][0] = -1;
+
+    //Executa a maquina
+    machine(&memoria_instrucoes, &memoria_dados);
+
+    return memoria_instrucoes[1][2];
 }
 
 //Calcula a soma da bhaskara
@@ -585,5 +606,23 @@ long int bhaskara_soma(long int a, long int b, long int c, long int** memoria_in
     long int mult = multi(multi(a, c, memoria_instrucoes, memoria_dados), 4, memoria_instrucoes, memoria_dados);
     long int subt = sub(pot(b, 2, memoria_instrucoes, memoria_dados), mult, memoria_instrucoes, memoria_dados);
     long int delta = raiz(subt, 2, memoria_instrucoes, memoria_dados);
-    //TODO concertar essa merda de raiz aqui
+    long int som = soma(-b, delta, memoria_instrucoes, memoria_dados);
+    long int div = divi(som, multi(a, 2, memoria_instrucoes, memoria_dados), memoria_instrucoes, memoria_dados);
+
+    //Leva o resultado para a memoria
+    memoria_instrucoes[0][0] = 2;
+    memoria_instrucoes[0][1] = div;
+    memoria_instrucoes[0][2] = 0;
+
+    //Traz o valor final da memoria
+    memoria_instrucoes[1][0] = 3;
+    memoria_instrucoes[1][1] = 0;
+
+    //Encerra a execução
+    memoria_instrucoes[2][0] = -1;
+
+    //Executa a maquina
+    machine(&memoria_instrucoes, &memoria_dados);
+
+    return memoria_instrucoes[1][2];
 }

@@ -94,6 +94,10 @@ void user_process(char command[], long int a, long int b, long int c ,long int**
     //Primo
     if(strcmp(command, "primo") == 0)
         printf("O numero %ld %s\n", a, primo(a, memoria_instrucoes, memoria_dados) == 1 ? "é primo": "não é primo");
+
+     //Primo
+    if(strcmp(command, "bhaskara") == 0)
+        printf("(%ld)x² + (%ld)x + (%ld) = 0 -> x = %ld || x = %ld\n", a, b, c, bhaskara_sub(a, b, c, memoria_instrucoes, memoria_dados), bhaskara_soma(a, b, c, memoria_instrucoes, memoria_dados));
 }
 
 //Faz a comunicação com o usuario
