@@ -2,6 +2,8 @@
 #include "operations.h"
 #include "core.h"
 
+//TODO baskara
+
 // Funções
 // Soma
 long int soma(long int a, long int b, long int **memoria_instrucoes, long int *memoria_dados){
@@ -113,8 +115,10 @@ long int divi(long int a, long int b, long int** memoria_instrucoes, long int* m
     if(a < 0){d = -a;} //Se o dividendo for negativo
     else{d = a;} //Se o dividendo for positivo
 
-    for(i = 0; (d > 0) && (c > 0); i++)
+    for(int k = 0; (d > 0) && (c > 0); k++){
         d = sub(d, c, memoria_instrucoes, memoria_dados);
+        i = soma(i, 1, memoria_instrucoes, memoria_dados);
+    }
     
     //Leva o resultado para a memoria
     memoria_instrucoes[0][0] = 2;
@@ -164,10 +168,12 @@ long int pot(long int a, long int b, long int** memoria_instrucoes, long int* me
 
 //Raiz
 long int raiz(long int a, long int b, long int** memoria_instrucoes, long int* memoria_dados){
-    long int i, c = -1234;
+    long int i = 0, c = -1234;
 
-    for(i = 0; c != a; i++)
+    for(int k = 0; c != a; k++){
         c = pot(i, b, memoria_instrucoes, memoria_dados);
+        i = soma(i, 1, memoria_instrucoes, memoria_dados);
+    }
 
     //Leva o resultado para a memoria
     memoria_instrucoes[0][0] = 2;
@@ -227,10 +233,12 @@ long int loga(long int a, long int b, long int** memoria_instrucoes, long int* m
     //"a" é a base
     //"b" é o logaritmando
 
-    long int result = -1234, i;
+    long int result = -1234, i = 0;
     
-    for(i = 0; result != b; i++)
+    for(int k = 0; result != b; k++){
         result = pot(a, i, memoria_instrucoes, memoria_dados);
+        i = soma(i, 1, memoria_instrucoes, memoria_dados);
+    }
 
     //Leva o resultado para a memoria
     memoria_instrucoes[0][0] = 2;
@@ -502,4 +510,80 @@ long int hipotenusa(long int a, long int b, long int** memoria_instrucoes, long 
     machine(&memoria_instrucoes, &memoria_dados);
 
     return memoria_instrucoes[1][2];
+}
+
+//Verifica se um numero é par ou impar
+long int parouimpar(long int a, long int** memoria_instrucoes, long int* memoria_dados){
+    //* 1 é impar
+    //* 0 é par
+    
+    long int result = a;
+
+    while (result > 0) result = sub(result, 2, memoria_instrucoes, memoria_dados);
+
+    //Leva o resultado para a memoria
+    memoria_instrucoes[0][0] = 2;
+    if(result == 0)  memoria_instrucoes[0][1] = 0;
+    else memoria_instrucoes[0][1] = 1;
+    memoria_instrucoes[0][2] = 0;
+
+    //Traz o valor final da memoria
+    memoria_instrucoes[1][0] = 3;
+    memoria_instrucoes[1][1] = 0;
+
+    //Encerra a execução
+    memoria_instrucoes[2][0] = -1;
+
+    //Executa a maquina
+    machine(&memoria_instrucoes, &memoria_dados);
+
+    return memoria_instrucoes[1][2];
+    
+}
+
+//Verifica se um numero é primo
+long int primo(long int a, long int** memoria_instrucoes, long int* memoria_dados){
+    //* 1 é primo
+    //* 0 não é primo
+    
+    long int result, ver = 1;
+
+    for(int i = 2; i < a; i++){
+        result = a;
+        while (result > 0) result = sub(result, i, memoria_instrucoes, memoria_dados);
+        if(result == 0){ver = 0; break;}
+    }
+
+    if((a == 1) || (a == 0)) ver = 0;
+
+    //Leva o resultado para a memoria
+    memoria_instrucoes[0][0] = 2;
+    memoria_instrucoes[0][1] = ver;
+    memoria_instrucoes[0][2] = 0;
+
+    //Traz o valor final da memoria
+    memoria_instrucoes[1][0] = 3;
+    memoria_instrucoes[1][1] = 0;
+
+    //Encerra a execução
+    memoria_instrucoes[2][0] = -1;
+
+    //Executa a maquina
+    machine(&memoria_instrucoes, &memoria_dados);
+
+    return memoria_instrucoes[1][2];
+    
+}
+
+//Calcula a subtração da bhaskara
+long int bhaskara_sub(long int a, long int b, long int c, long int** memoria_instrucoes, long int* memoria_dados){
+
+}
+
+//Calcula a soma da bhaskara
+long int bhaskara_soma(long int a, long int b, long int c, long int** memoria_instrucoes, long int* memoria_dados){
+    long int mult = multi(multi(a, c, memoria_instrucoes, memoria_dados), 4, memoria_instrucoes, memoria_dados);
+    long int subt = sub(pot(b, 2, memoria_instrucoes, memoria_dados), mult, memoria_instrucoes, memoria_dados);
+    long int delta = raiz(subt, 2, memoria_instrucoes, memoria_dados);
+    //TODO concertar essa merda de raiz aqui
 }

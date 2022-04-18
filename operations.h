@@ -20,8 +20,10 @@ long int soma_pg(long int a, long int b, long int n, long int** memoria_instruco
 long int kelvin(long int a, long int** memoria_instrucoes, long int* memoria_dados); //Faz a conversão de Celsius para Kelvin
 long int fahrenheit(long int a, long int** memoria_instrucoes, long int* memoria_dados); //Faz a conversão de Celsius para Fahrenheit
 long int hipotenusa(long int a, long int b, long int** memoria_instrucoes, long int* memoria_dados); //Calcula a hipotenusa de um triangulo
-
-
+long int parouimpar(long int a, long int** memoria_instrucoes, long int* memoria_dados); //Verifica se um numero é par ou impar
+long int primo(long int a, long int** memoria_instrucoes, long int* memoria_dados); //Verifica se um numero é primo
+long int bhaskara_sub(long int a, long int b, long int c, long int** memoria_instrucoes, long int* memoria_dados); //Calcula a subtração da bhaskara
+long int bhaskara_soma(long int a, long int b, long int c, long int** memoria_instrucoes, long int* memoria_dados); //Calcula a soma da bhaskara
 
 
 #endif 

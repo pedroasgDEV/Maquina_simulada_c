@@ -86,6 +86,14 @@ void user_process(char command[], long int a, long int b, long int c ,long int**
     //Hipotenusa
     if(strcmp(command, "hipo") == 0)
         printf("Hipotenusa %ld² + %ld² = %ld²\n", a, b, hipotenusa(a, b, memoria_instrucoes, memoria_dados));
+
+    //Par ou impar
+    if(strcmp(command, "p|i") == 0)
+        printf("O numero %ld é %s\n", a, parouimpar(a, memoria_instrucoes, memoria_dados) == 1 ? "impar": "par");
+
+    //Primo
+    if(strcmp(command, "primo") == 0)
+        printf("O numero %ld %s\n", a, primo(a, memoria_instrucoes, memoria_dados) == 1 ? "é primo": "não é primo");
 }
 
 //Faz a comunicação com o usuario
