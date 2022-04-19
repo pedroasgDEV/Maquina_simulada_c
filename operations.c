@@ -2,8 +2,6 @@
 #include "operations.h"
 #include "core.h"
 
-//TODO baskara
-
 // Funções
 // Soma
 long int soma(long int a, long int b, long int **memoria_instrucoes, long int *memoria_dados){
@@ -612,6 +610,59 @@ long int bhaskara_soma(long int a, long int b, long int c, long int** memoria_in
     //Leva o resultado para a memoria
     memoria_instrucoes[0][0] = 2;
     memoria_instrucoes[0][1] = div;
+    memoria_instrucoes[0][2] = 0;
+
+    //Traz o valor final da memoria
+    memoria_instrucoes[1][0] = 3;
+    memoria_instrucoes[1][1] = 0;
+
+    //Encerra a execução
+    memoria_instrucoes[2][0] = -1;
+
+    //Executa a maquina
+    machine(&memoria_instrucoes, &memoria_dados);
+
+    return memoria_instrucoes[1][2];
+}
+
+//Quntidade de algarismos de um numero
+long int qnt_alg(long int a, long int** memoria_instrucoes, long int* memoria_dados){
+    long int i = 0, result = 1;
+
+    for(int k = 10; result >= 0; k *= 10){
+        i = soma(i, 1, memoria_instrucoes, memoria_dados);
+        result = sub(a, k, memoria_instrucoes, memoria_dados);
+    }
+
+    //Leva o resultado para a memoria
+    memoria_instrucoes[0][0] = 2;
+    memoria_instrucoes[0][1] = i;
+    memoria_instrucoes[0][2] = 0;
+
+    //Traz o valor final da memoria
+    memoria_instrucoes[1][0] = 3;
+    memoria_instrucoes[1][1] = 0;
+
+    //Encerra a execução
+    memoria_instrucoes[2][0] = -1;
+
+    //Executa a maquina
+    machine(&memoria_instrucoes, &memoria_dados);
+
+    return memoria_instrucoes[1][2];
+}
+
+//! concertar a formula, esta dando erros
+//Calcula a quantidade de algarismos de um produto 
+long int qnt_alg_prod(long int a, long int b, long int** memoria_instrucoes, long int* memoria_dados){
+    a = qnt_alg(a, memoria_instrucoes, memoria_dados); //Pega a qnt de algarismos de a
+    b = qnt_alg(b, memoria_instrucoes, memoria_dados); //Pega a qnt de algarismos de b
+
+    long int result = sub(soma(a, b, memoria_instrucoes, memoria_dados), 1, memoria_instrucoes, memoria_dados); 
+
+    //Leva o resultado para a memoria
+    memoria_instrucoes[0][0] = 2;
+    memoria_instrucoes[0][1] = result;
     memoria_instrucoes[0][2] = 0;
 
     //Traz o valor final da memoria

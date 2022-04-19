@@ -29,6 +29,8 @@ long int parouimpar(long int a, long int** memoria_instrucoes, long int* memoria
 long int primo(long int a, long int** memoria_instrucoes, long int* memoria_dados); //Verifica se um numero é primo
 long int bhaskara_sub(long int a, long int b, long int c, long int** memoria_instrucoes, long int* memoria_dados); //Calcula a subtração da bhaskara
 long int bhaskara_soma(long int a, long int b, long int c, long int** memoria_instrucoes, long int* memoria_dados); //Calcula a soma da bhaskara
+long int qnt_alg(long int a, long int** memoria_instrucoes, long int* memoria_dados); //Quntidade de algarismos de um numero
+long int qnt_alg_prod(long int a, long int b, long int** memoria_instrucoes, long int* memoria_dados); //Calcula a quantidade de algarismos de um produto 
 
 
 #endif 

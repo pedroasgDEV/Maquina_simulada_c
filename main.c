@@ -17,6 +17,7 @@ int main(int argc, char *argv[]){
     memoria_dados = montar_ram();
     memoria_instrucoes = montar_instrucoes();
 
+
     user_comunication(memoria_instrucoes, memoria_dados);
 
     //Libera a memoria alocada
