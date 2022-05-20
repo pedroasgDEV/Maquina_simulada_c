@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/pedroasg/Downloads/UFOP/Periodo2/Organização'
+make: Leaving directory '/home/pedroasg/Downloads/UFOP/Periodo2/Organização'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

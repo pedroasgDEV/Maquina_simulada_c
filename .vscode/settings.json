@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "operations.h": "c",
+        "instructions.h": "c",
+        "memoryblock.h": "c",
+        "core.h": "c"
+    }
+}
