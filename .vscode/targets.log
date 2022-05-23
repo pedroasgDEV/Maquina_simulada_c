@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon May 23 10:26:10 2022
+# Make data base, printed on Mon May 23 11:55:53 2022
 
 # Variables
 
@@ -121,7 +121,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 5268
+GIO_LAUNCHED_DESKTOP_FILE_PID = 17323
 # automatic
 %F = $(notdir $%)
 # environment
@@ -187,7 +187,7 @@ SHLVL = 0
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-cae132ad-52cf-4df2-9a3b-3b1ef6120202.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-5549afde-90ad-4da8-bdd0-fdfee20b1131.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -265,7 +265,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 5320
+VSCODE_PID = 17373
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
@@ -298,7 +298,6 @@ all:
 Makefile:
 #  Implicit rule search has been done.
 #  File does not exist.
- 
 #  File has been updated.
 #  Failed to be updated.
 
@@ -311,6 +310,7 @@ makefile:
 
 # Not a target:
 .DEFAULT:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -336,6 +336,6 @@ GNUmakefile:
 # strcache performance: lookups = 19 / hit rate = 15%
 # hash-table stats:
 # Load=16/8192=0%, Rehash=0, Collisions=1/19=5%
-# Finished Make data base on Mon May 23 10:26:10 2022
+# Finished Make data base on Mon May 23 11:55:53 2022
 
  

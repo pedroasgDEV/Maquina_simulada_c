@@ -129,9 +129,7 @@ void ToCache3(TCell *cell, TMemBlock *ram, TRow *cache3){
 
     //Se a cache 3 estive cheia
     else{
-        TMemBlock lixo;
-        TCell *aux = NewCell(lixo);
-        aux->block = cell->block;
+        TCell *aux = NewCell(cell->block);
         
         //Tira a ultima celula da cache 3
         PopRow(cache3, aux);
@@ -151,9 +149,7 @@ void ToCache2(TCell *cell, TMemBlock *ram, TRow *cache2, TRow *cache3){
 
     //Se a cache 2 estive cheia
     else{
-        TMemBlock lixo;
-        TCell *aux = NewCell(lixo);
-        aux->block = cell->block;
+        TCell *aux = NewCell(cell->block);
         
         //Tira a ultima celula da cache 2
         PopRow(cache2, aux);
@@ -174,9 +170,7 @@ void ToCache1(TCell *cell, TMemBlock *ram, TRow *cache1, TRow *cache2, TRow *cac
 
     //Se a cache 1 estive cheia
     else{
-        TMemBlock lixo;
-        TCell *aux = NewCell(lixo);
-        aux->block = cell->block;
+        TCell *aux = NewCell(cell->block);
         
         //Tira a ultima celula da cache 1
         PopRow(cache1, aux);
