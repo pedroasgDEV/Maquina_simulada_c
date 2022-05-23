@@ -121,7 +121,6 @@ TCell *MemorySearch(int end_block, TMemBlock *ram, TRow *cache1, TRow *cache2, T
     
 }
 
-
 //Leva celula para o topo da cache 3
 void ToCache3(TCell *cell, TMemBlock *ram, TRow *cache3){
 
@@ -189,5 +188,3 @@ void ToCache1(TCell *cell, TMemBlock *ram, TRow *cache1, TRow *cache2, TRow *cac
         PushRow(cache1, cell);
     }
 }
-
-

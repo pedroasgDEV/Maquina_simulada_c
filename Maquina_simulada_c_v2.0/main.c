@@ -12,9 +12,9 @@
 
 //Constantes
 #define tam_ram 1000 //Tamanho da ram
-#define tam_cache1 8 //Tamanho da cache 1
-#define tam_cache2 16 //Tamanho da cache 2
-#define tam_cache3 32 //Tamanho da cache 3
+#define tam_cache1 16 //Tamanho da cache 1
+#define tam_cache2 32 //Tamanho da cache 2
+#define tam_cache3 64 //Tamanho da cache 3
 #define qnt_wrds 4 //Quantidade de palavras
 #define qnt_instr 10001 //Quantidade de instruções
 
@@ -55,7 +55,7 @@ int main(){
     //Calcula o tempo de exec
     double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
 
-    printf("Time: %.2lf\n", time_spent);
+    printf("Time: %.2lf\n\n", time_spent);
 
     return 0;
 }

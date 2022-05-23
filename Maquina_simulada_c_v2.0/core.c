@@ -5,6 +5,7 @@
 TMach NewMachine(){
     TMach aux;
     aux.custo = 0;
+    aux.ciclos = 0;
 
     aux.missC1 = 0;
     aux.missC2 = 0;
@@ -181,12 +182,20 @@ void machine(TMemBlock *ram, TRow *cache1, TRow *cache2, TRow *cache3, TInst *in
 
         interprets_machine(instrucao, ram, cache1, cache2, cache3, &mach);
 
-        //Iprime as informações de uso da maquina
+        //Iprime as informações de uso da maquina em cada ciclo de processamento
         printf("Custo: %ld\n", mach.custo);
         printf("C1 hit: %ld | C1 miss: %ld | C2 hit: %ld| C2 miss: %ld | C3 hit: %ld| C3 miss: %ld\n", mach.hitC1, mach.missC1, mach.hitC2, mach.missC2, mach.hitC3, mach.missC3); 
+
+        mach.ciclos++;
     }
 
+    //Porcentagem de blocos encontrados em cada cache e na ram
+    float perC1 = (((float) mach.hitC1) / ((float) mach.hitC1 + mach.missC1)) * 100;
+    float perC2 = (((float) mach.hitC2) / ((float) mach.hitC2 + mach.missC2)) * 100;
+    float perC3 = (((float) mach.hitC3) / ((float) mach.hitC3 + mach.missC3)) * 100;
+    float perRAM  = (((float) mach.missC3) / ((float) mach.ciclos * 3)) * 100;
+
     //Iprime as informações de uso da maquina
-    printf("Custo: %ld\n", mach.custo);
-    printf("C1 hit: %ld | C1 miss: %ld | C2 hit: %ld| C2 miss: %ld | C3 hit: %ld| C3 miss: %ld\n", mach.hitC1, mach.missC1, mach.hitC2, mach.missC2, mach.hitC3, mach.missC3);
+    printf("\nCusto: %ld | ", mach.custo);
+    printf("C1: %.2f | C2: %.2f | C3: %.2f | RAM: %.2f | ", perC1, perC2, perC3, perRAM);
 }

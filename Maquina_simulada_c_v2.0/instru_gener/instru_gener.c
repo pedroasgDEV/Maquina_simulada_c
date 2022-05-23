@@ -8,7 +8,7 @@
 #define qtd_for 5 //Numero de intruções que vão se repetir
 #define qtd_wrds 4 //Quantidade de palavras
 #define tam_ram 1000 //Tamanho da ram
-#define prob 50 //Probabilidade de repetição em %
+#define prob 90 //Probabilidade de repetição em %
 
 int main(){
     srand(time(NULL));

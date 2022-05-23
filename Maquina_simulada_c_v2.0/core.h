@@ -15,6 +15,7 @@
 //TAD de informações de uso da maquina
 typedef struct machine{
     long int custo; //Custo de uso da maquina
+    long int ciclos; //Quantas vezes a maquina fez um ciclo de processamento
 
     //Informações das caches
     long int missC1; //Qunatidade de miss na cache 1
